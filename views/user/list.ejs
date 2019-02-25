@@ -1,0 +1,34 @@
+<%- include ../layouts/header.ejs %>
+<% if (messages.error) { %>
+    <p style="color: red"><%- messages.error %></p> 
+<% } %>
+<% if (messages.success) { %>
+    <p style="color: red"><%- messages.success %></p> 
+<% } %>
+<table width='80%' border=0>
+
+    <tr style = 'text-align:left; background-color: #CCC'>
+        <th>Nama</th>
+        
+        <th>Action</th>
+    </tr>
+<% if(data) { %>
+<% data.forEach(function(user){ %>
+    <tr>
+        <td><%= user.judul %></td>
+        <td>
+            <div style="float: left">
+                <a href="/buku/detail/<%= user._id %>">DETAIL</a> 
+                <a href="/user/edit/<%= user._id %>">Edit</a>
+                <form action="/users/delete/<%= user._id %>" method="post">
+                    <input type="submit" name="delete" value="Delete">
+                    <input type="hidden" name="_method" value="DELETE">
+                </form>
+                 
+            </div>
+        </td>
+    </tr>
+    <% }) %>
+    <% } %>
+
+</table>

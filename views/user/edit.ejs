@@ -1,0 +1,33 @@
+<%- include ../layouts/header.ejs %>
+<% if (messages.error) { %>
+    <p style="color: red"><%- messages.error %></p> 
+<% } %>
+<% if (messages.success) { %>
+    <p style="color: red"><%- messages.success %></p> 
+<% } %>
+<form action="/users/edit/<%= id %>" method="post" name="form1">
+    <input type="hidden" name="_method" value="PUT">
+    <table width="25%" border="0">
+        <tr>
+            <td>judul</td>
+            <td><input type="text" name="judul" id="judul" value="<%= judul %>"></td>
+        </tr>
+        <tr>
+            <td>penulis</td>
+            <td><input type="text" name="penulis" id="penulis" value="<%= penulis %>"></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="text" name="email" id="email" value="<%= email %>"></td>
+        </tr>
+        <tr>
+            <td>No Telephone</td>
+            <td><input type="text" name="no" id="no" value="<%= no %>"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" name="Submit" value="Add"/></td>
+        </tr>
+        
+    </table>
+</form>
